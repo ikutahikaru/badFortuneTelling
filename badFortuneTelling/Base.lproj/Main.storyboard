@@ -61,7 +61,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="占う"/>
                                 <connections>
-                                    <segue destination="Jg1-55-48O" kind="show" id="esp-eB-qDW"/>
+                                    <segue destination="Jg1-55-48O" kind="popoverPresentation" popoverAnchorView="d8a-Wf-g8q" id="esp-eB-qDW">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1ge-cs-hSZ">
@@ -81,16 +83,25 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99159093443328294" blue="0.020420905275316259" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="QoI-AV-RmN" appends="YES" id="9ux-qW-xnp"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="QoI-AV-RmN">
+                    <connections>
+                        <action selector="tapView:" destination="BYZ-38-t0r" id="aNQ-kN-P6k"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="hpC-mD-ZIW">
             <objects>
-                <viewController id="Jg1-55-48O" sceneMemberID="viewController">
+                <viewController id="Jg1-55-48O" customClass="SecondViewController" customModule="badFortuneTelling" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Dw-oi-WMK"/>
                         <viewControllerLayoutGuide type="bottom" id="Ygx-4t-tXl"/>
@@ -107,17 +118,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="あなたは、、、" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipr-W8-893">
-                                <rect key="frame" x="126" y="90" width="122" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="あなたの運勢は、、、" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipr-W8-893">
+                                <rect key="frame" x="126" y="90" width="174" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEp-8X-SaG">
+                                <rect key="frame" x="105" y="417" width="201" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="もう一度占う"/>
+                                <connections>
+                                    <action selector="backButton:" destination="Jg1-55-48O" eventType="touchUpInside" id="mn9-n8-kqZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="VWp-1J-mot"/>
+                    <connections>
+                        <outlet property="resultLabel" destination="baj-Cg-PPe" id="mqb-ug-uUu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="90n-ox-rbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
